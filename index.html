@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Kasir Toko</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>KASIR TOKO DIKDAN PS</h1>
+        <p>Sistem Kasir dan Pre-Order</p>
+    </header>
+
+
+    <!-- NAVIGASI -->
+    <nav>
+        <button onclick="showPage('barang')">
+            Barang
+        </button>
+
+        <button onclick="showPage('transaksi')">
+            Transaksi
+        </button>
+
+        <button onclick="showPage('preorder')">
+            Pre-Order
+        </button>
+
+        <button onclick="showPage('riwayat')">
+            Riwayat
+        </button>
+    </nav>
+
+
+    <main>
+
+        <!-- ===================== -->
+        <!-- KELOLA BARANG -->
+        <!-- ===================== -->
+
+        <section id="barang" class="page">
+
+            <h2>Kelola Barang</h2>
+
+            <div class="form">
+
+                <input
+                    type="text"
+                    id="namaBarang"
+                    placeholder="Nama Barang"
+                >
+
+                <input
+                    type="number"
+                    id="hargaBarang"
+                    placeholder="Harga"
+                >
+
+                <input
+                    type="number"
+                    id="stokBarang"
+                    placeholder="Stok"
+                >
+
+                <button onclick="tambahBarang()">
+                    Tambah Barang
+                </button>
+
+            </div>
+
+
+            <input
+                type="text"
+                id="cariBarang"
+                placeholder="Cari barang..."
+                oninput="cariBarang()"
+            >
+
+
+            <table>
+
+                <thead>
+                    <tr>
+                        <th>Nama Barang</th>
+                        <th>Harga</th>
+                        <th>Stok</th>
+                        <th>Aksi</th>
+                    </tr>
+                </thead>
+
+                <tbody id="tabelBarang">
+                </tbody>
+
+            </table>
+
+        </section>
+
+
+        <!-- ===================== -->
+        <!-- TRANSAKSI -->
+        <!-- ===================== -->
+
+        <section id="transaksi" class="page">
+
+            <h2>Transaksi</h2>
+
+            <select id="pilihBarang">
+                <option value="">
+                    -- Pilih Barang --
+                </option>
+            </select>
+
+            <input
+                type="number"
+                id="jumlahBarang"
+                value="1"
+                min="1"
+                placeholder="Jumlah"
+            >
+
+            <button onclick="tambahKeranjang()">
+                Tambah ke Keranjang
+            </button>
+
+
+            <h3>Keranjang</h3>
+
+            <table>
+
+                <thead>
+                    <tr>
+                        <th>Barang</th>
+                        <th>Jumlah</th>
+                        <th>Subtotal</th>
+                        <th>Aksi</th>
+                    </tr>
+                </thead>
+
+                <tbody id="tabelKeranjang">
+                </tbody>
+
+            </table>
+
+
+            <h3>
+                Total:
+                <span id="total">Rp 0</span>
+            </h3>
+
+
+            <input
+                type="number"
+                id="pembayaran"
+                placeholder="Jumlah pembayaran"
+            >
+
+            <button onclick="bayar()">
+                Bayar
+            </button>
+
+
+            <h3>
+                Kembalian:
+                <span id="kembalian">Rp 0</span>
+            </h3>
+
+        </section>
+
+
+        <!-- ===================== -->
+        <!-- PRE-ORDER -->
+        <!-- ===================== -->
+
+        <section id="preorder" class="page">
+
+            <h2>Pre-Order Barang</h2>
+
+            <div class="form">
+
+                <input
+                    type="text"
+                    id="namaPelanggan"
+                    placeholder="Nama Pelanggan"
+                >
+
+                <input
+                    type="text"
+                    id="barangPreOrder"
+                    placeholder="Nama Barang"
+                >
+
+                <input
+                    type="number"
+                    id="jumlahPreOrder"
+                    value="1"
+                    min="1"
+                    placeholder="Jumlah"
+                >
+
+                <input
+                    type="date"
+                    id="tanggalAmbil"
+                >
+
+                <button onclick="tambahPreOrder()">
+                    Simpan Pre-Order
+                </button>
+
+            </div>
+
+
+            <table>
+
+                <thead>
+                    <tr>
+                        <th>Pelanggan</th>
+                        <th>Barang</th>
+                        <th>Jumlah</th>
+                        <th>Tanggal Ambil</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+
+                <tbody id="tabelPreOrder">
+                </tbody>
+
+            </table>
+
+        </section>
+
+
+        <!-- ===================== -->
+        <!-- RIWAYAT -->
+        <!-- ===================== -->
+
+    <section id="riwayat" class="page">
+    <h2>Riwayat Transaksi</h2>
+
+    <button onclick="hapusRiwayat()">Hapus Semua Riwayat</button>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Tanggal</th>
+                <th>Nama Barang</th>
+                <th>Jumlah</th>
+                <th>Total</th>
+            </tr>
+        </thead>
+
+        <tbody id="tabelRiwayat"></tbody>
+    </table>
+</section>
+
+    </main>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
