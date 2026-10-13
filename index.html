@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Kasir Toko</title>
+    <title>Kasir Toko - Smart Pre-Order System</title>
 
     <link rel="stylesheet" href="style.css">
 </head>
@@ -13,7 +13,7 @@
 
     <header>
         <h1>KASIR TOKO LEK BIT</h1>
-        <p>Sistem Kasir dan Pre-Order</p>
+        <p>Sistem Kasir dan Smart Pre-Order System</p>
     </header>
 
 
@@ -28,7 +28,7 @@
         </button>
 
         <button onclick="showPage('preorder')">
-            Pre-Order
+            Pre-Order (Smart)
         </button>
 
         <button onclick="showPage('riwayat')">
@@ -105,9 +105,9 @@
         <!-- TRANSAKSI -->
         <!-- ===================== -->
 
-        <section id="transaksi" class="page">
+        <section id="transaksi" class="page" style="display:none;">
 
-            <h2>Transaksi</h2>
+            <h2>Transaksi Kasir</h2>
 
             <select id="pilihBarang">
                 <option value="">
@@ -148,7 +148,7 @@
 
 
             <h3>
-                Total:
+                Total Tagihan:
                 <span id="total">Rp 0</span>
             </h3>
 
@@ -173,12 +173,12 @@
 
 
         <!-- ===================== -->
-        <!-- PRE-ORDER -->
+        <!-- PRE-ORDER (FITUR SMART) -->
         <!-- ===================== -->
 
-        <section id="preorder" class="page">
+        <section id="preorder" class="page" style="display:none;">
 
-            <h2>Pre-Order Barang</h2>
+            <h2>Pre-Order Barang (Smart System)</h2>
 
             <div class="form">
 
@@ -207,6 +207,11 @@
                     id="tanggalAmbil"
                 >
 
+                <!-- TOMBOL FITUR SMART ESTIMASI TANGGAL AUTOMATIS -->
+                <button type="button" onclick="estimasiTanggalPO()" style="background-color: #007bff; color: white;">
+                    ⚡ Hitung Estimasi Otomatis
+                </button>
+
                 <button onclick="tambahPreOrder()">
                     Simpan Pre-Order
                 </button>
@@ -221,8 +226,8 @@
                         <th>Pelanggan</th>
                         <th>Barang</th>
                         <th>Jumlah</th>
-                        <th>Tanggal Ambil</th>
-                        <th>Status</th>
+                        <th>Tanggal Ambil (Prioritas)</th>
+                        <th>Status / Aksi</th>
                     </tr>
                 </thead>
 
@@ -235,30 +240,31 @@
 
 
         <!-- ===================== -->
-        <!-- RIWAYAT -->
+        <!-- RIWAYAT TRANSAKSI -->
         <!-- ===================== -->
 
-    <section id="riwayat" class="page">
-    <h2>Riwayat Transaksi</h2>
+        <section id="riwayat" class="page" style="display:none;">
 
-    <button onclick="hapusRiwayat()">Hapus Semua Riwayat</button>
+            <h2>Riwayat Transaksi</h2>
 
-    <table>
-        <thead>
-            <tr>
-                <th>Tanggal</th>
-                <th>Nama Barang</th>
-                <th>Jumlah</th>
-                <th>Total</th>
-            </tr>
-        </thead>
+            <button onclick="hapusRiwayat()">Hapus Semua Riwayat</button>
 
-        <tbody id="tabelRiwayat"></tbody>
-    </table>
-</section>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Tanggal</th>
+                        <th>Nama Barang</th>
+                        <th>Jumlah</th>
+                        <th>Total</th>
+                    </tr>
+                </thead>
+
+                <tbody id="tabelRiwayat"></tbody>
+            </table>
+
+        </section>
 
     </main>
-
 
     <script src="script.js"></script>
 
